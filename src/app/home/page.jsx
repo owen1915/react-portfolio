@@ -35,7 +35,7 @@ export default function HomePage() {
             problems, advancing AI-driven capabilities, or improving the user experience.
           </p>
 
-          <img src="res/ojg.jpeg" alt="Profile" className="aboutImage" />
+          <img src="https://i.imgur.com/Iq0HFbx.jpeg" alt="Profile" className="aboutImage" />
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export default function HomePage() {
       <div className="textContainer">
         <h1>Undergraduate Research</h1>
         <p>
-            I am conducting undergraduate research with {" "} 
+            I am conducting undergraduate research with {""} 
             <a 
             href="https://che.vt.edu/People/faculty/Achenie.html" 
             target="_blank" 
@@ -82,7 +82,7 @@ export default function HomePage() {
         </p>
 
         <img
-            src="res/image.jpg"
+            src="https://i.imgur.com/nMu63Gw.jpeg"
             alt="Undergraduate Research"
             style={{ margin: "1rem", width: "95%", height: "auto", borderRadius: "12px" }}
         />
@@ -107,7 +107,7 @@ export default function HomePage() {
           muted
           style={{ width: "95%", height: "auto", margin: "0 2.5% 2.5% 2.5%" }}
         >
-          <source src="res/game.mp4" type="video/mp4" />
+          <source src="https://i.imgur.com/CxnE4zz.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -148,7 +148,7 @@ export default function HomePage() {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="res/linkedin.png" alt="linkedin" />
+            <img src="/res/linkedin.png" alt="linkedin" />
           </a>
 
           <a
