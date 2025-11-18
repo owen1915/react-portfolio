@@ -148,7 +148,7 @@ export default function HomePage() {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="/res/linkedin.png" alt="linkedin" />
+            <img src="https://cdn-icons-png.flaticon.com/128/3536/3536569.png" alt="linkedin" />
           </a>
 
           <a
