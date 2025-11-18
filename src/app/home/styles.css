@@ -1,0 +1,207 @@
+/* GLOBAL ------------------------------------------------------------ */
+
+html, body {
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #b8e1ff 0%, #a1c4fd 50%, #cfd9ff 100%);
+    background-attachment: fixed;
+    overscroll-behavior: none;
+    color: #1b1b1b;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    color: #555;
+}
+
+/* PAGE -------------------------------------------------------------- */
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    padding: 6vh 2vw;
+}
+
+/* HEADER ------------------------------------------------------------ */
+
+.headerContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    font-size: 2rem;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.header a:hover {
+    opacity: 0.8;
+}
+
+/* SECTION BOXES ----------------------------------------------------- */
+
+.textContainer {
+    width: min(900px, 80vw);
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: none;      
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.textContainer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+.textContainer h1 {
+    font-family: "Courier New", monospace;
+    font-size: 1.9rem;
+    font-weight: 500;
+    margin: 0 0 1.2rem 0;
+}
+
+.textContainer p {
+    margin: 0.5rem 0 1.2rem 0;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: #222;
+    text-indent: 1.5rem;
+}
+
+.textContainer video {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 1rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ABOUT SECTION ----------------------------------------------------- */
+
+.aboutRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.aboutRow p {
+    flex: 1;
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    text-indent: 1.5rem;
+}
+
+.aboutImage {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.20), 0 0 0 8px rgba(255,255,255,0.3);
+}
+
+/* MOBILE ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+    .aboutRow {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .aboutRow p {
+        text-indent: 0;
+    }
+
+    .aboutImage {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+/* CONTACT ----------------------------------------------------------- */
+
+.contactContainer {
+    text-align: center;
+}
+
+.contactWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.contactWrapper a {
+    width: 62px;
+    height: 62px;
+    background-color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.2s ease;
+}
+
+.contactWrapper a:hover {
+    background-color: black;
+    transform: translateY(-3px);
+}
+
+.contactWrapper img {
+    width: 52px;
+    height: 52px;
+    padding: 6px;
+    border-radius: 50%;
+    object-fit: contain;
+    transition: 0.2s ease;
+}
+
+.contactWrapper a:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* EMAIL POPUP ------------------------------------------------------- */
+
+#emailCopied {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    color: white;
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+#emailCopied.show {
+    opacity: 1;
+}
