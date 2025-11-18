@@ -1,18 +1,30 @@
-import fs from "fs";
-import path from "path";
+"use client";
+
+import { useEffect, useState } from "react";
 import AnniversaryClient from "./AnniversaryClient";
 import "./styles.css";
 
 export default function AnniversaryPage() {
-  const filePath = path.join(process.cwd(), "src/app/anniversary/images.txt");
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const items = raw
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean);
+  const [photos, setPhotos] = useState([]);
+  const [videos, setVideos] = useState([]);
 
-  const photos = items.filter((url) => !url.match(/\.(mp4|mov|webm)$/i));
-  const videos = items.filter((url) => url.match(/\.(mp4|mov|webm)$/i));
+  useEffect(() => {
+    fetch("/anniversary/images.txt")
+      .then((res) => res.text())
+      .then((raw) => {
+        const items = raw
+          .split("\n")
+          .map((l) => l.trim())
+          .filter(Boolean);
+
+        const _photos = items.filter((url) => !url.match(/\.(mp4|mov|webm)$/i));
+        const _videos = items.filter((url) => url.match(/\.(mp4|mov|webm)$/i));
+
+        setPhotos(_photos);
+        setVideos(_videos);
+      })
+      .catch((err) => console.error("Error loading images.txt", err));
+  }, []);
 
   return <AnniversaryClient photos={photos} videos={videos} />;
 }
