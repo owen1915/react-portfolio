@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  trailingSlash: true,   // prevents 404s on GitHub Pages
 };
 
 export default nextConfig;
