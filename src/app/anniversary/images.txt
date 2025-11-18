@@ -1,7 +1,6 @@
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494097/SNAP_20250907-194624_2_ei6szr.mp4
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494095/SNAP_20250828-212244_2_dmchtk.mp4
 https://res.cloudinary.com/dala2m5ru/image/upload/f_jpg/v1763494091/IMG_9026_2_ocxkrq.heic
-https://res.cloudinary.com/dala2m5ru/video/upload/v1763494093/SNAP_20250620-173734_2_e8wl1x.mp4
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494092/SNAP_20250619-114902_2_m8mvaf.mp4
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494091/SNAP_20250611-195902_2_mdwru5.mp4
 https://res.cloudinary.com/dala2m5ru/image/upload/v1763494091/IMG_8777_2_kvt5fp.jpg
@@ -63,7 +62,6 @@ https://res.cloudinary.com/dala2m5ru/image/upload/f_jpg/v1763494049/IMG_1611_2_d
 https://res.cloudinary.com/dala2m5ru/image/upload/f_jpg/v1763494049/IMG_1580_2_hdfzqr.heic
 https://res.cloudinary.com/dala2m5ru/image/upload/f_jpg/v1763494048/IMG_1511_2_w4ocbt.heic
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494048/EDFE5645-A5BF-4D73-96C4-B51C95B05B9A_2_ntpfc2.mp4
-https://res.cloudinary.com/dala2m5ru/video/upload/v1763494048/FDC1A5B1-6B49-4215-8DD6-DCA2009B9098_2_gerco2.mov
 https://res.cloudinary.com/dala2m5ru/image/upload/v1763494047/BF4ACEE3-B675-4BA9-A6CA-410B83CEDAF9_2_sbhfwp.jpg
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494046/9DE4079D-44EF-4EF1-AEEA-305D20A9527E_2_x77afo.mov
 https://res.cloudinary.com/dala2m5ru/video/upload/v1763494046/A16F4C76-CDD5-4B1E-A073-D319A2DD1E18_2_cgovpl.mp4
