@@ -7,25 +7,19 @@ function VideoThumbnail({ url, onClick }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) setIsVisible(true);
         });
       },
-      { rootMargin: "100px" }
+      { rootMargin: "150px" }
     );
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
+    if (videoRef.current) obs.observe(videoRef.current);
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
+      if (videoRef.current) obs.unobserve(videoRef.current);
     };
   }, []);
 
@@ -41,7 +35,7 @@ function VideoThumbnail({ url, onClick }) {
           <div className="play-overlay">▶</div>
         </>
       ) : (
-        <div className="video-placeholder"></div>
+        <div className="video-placeholder" />
       )}
     </div>
   );
@@ -49,56 +43,130 @@ function VideoThumbnail({ url, onClick }) {
 
 export default function AnniversaryClient({ photos, videos }) {
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const playerRef = useRef(null);
+
+  // ============================
+  // FULL PRELOAD FIX (IMAGES + VIDEOS)
+  // ============================
+  useEffect(() => {
+    const minLoad = new Promise(r => setTimeout(r, 1500));
+
+    const imagePromises = photos.map(url => {
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = resolve;
+        img.src = url;
+      });
+    });
+
+    const videoPromises = videos.map(url => {
+      return new Promise(resolve => {
+        const v = document.createElement("video");
+        v.preload = "metadata";
+        v.onloadedmetadata = resolve;
+        v.onerror = resolve;
+        v.src = url;
+      });
+    });
+
+    Promise.all([minLoad, ...imagePromises, ...videoPromises])
+      .then(() => setIsLoading(false));
+  }, [photos, videos]);
 
   const goToPrevVideo = () => {
-    setSelectedVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    setSelectedVideoIndex(prev => (prev - 1 + videos.length) % videos.length);
   };
 
   const goToNextVideo = () => {
-    setSelectedVideoIndex((prev) => (prev + 1) % videos.length);
+    setSelectedVideoIndex(prev => (prev + 1) % videos.length);
   };
+
+  const firstOpen = useRef(true);
+
+    useEffect(() => {
+    if (selectedVideoIndex !== null && firstOpen.current) {
+        firstOpen.current = false;
+        if (playerRef.current) {
+        playerRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }
+    }, [selectedVideoIndex]);
+
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = e => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = e => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? goToNextVideo() : goToPrevVideo();
+    }
+    touchStartX.current = null;
+  };
+
+  if (isLoading) {
+    return (
+      <div className="loading-screen">
+        <div className="loading-content">
+          <div className="heart-spinner">
+            <span className="heart">❤️</span>
+          </div>
+          <h2>Loading your memories...</h2>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main className="anniversary">
       <h1>❤️ Happy Anniversary Sara ❤️</h1>
       <Carousel items={photos} />
+
       <h2 className="video-title">a small amount of our amazing memories</h2>
-      
+
       {selectedVideoIndex !== null && (
-        <div className="video-player-wrapper">
-          <button 
-            className="close-player" 
+        <div
+          ref={playerRef}
+          className="video-player-wrapper"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <button
+            className="close-player"
             onClick={() => setSelectedVideoIndex(null)}
           >
             ✕
           </button>
-          
-          <button 
-            className="nav-btn video" 
-            onClick={goToPrevVideo}
-          >
-            ‹
-          </button>
-          
+
           <div className="video-player">
-            <video 
-              src={videos[selectedVideoIndex]} 
-              controls 
-              autoPlay 
-              playsInline
-              key={videos[selectedVideoIndex]}
+            <video
+                src={videos[selectedVideoIndex]}
+                controls
+                autoPlay
+                playsInline
+                key={videos[selectedVideoIndex]}
+                tabIndex="-1"
+                autoFocus={false}
             />
           </div>
-          
-          <button 
-            className="nav-btn video" 
-            onClick={goToNextVideo}
-          >
-            ›
-          </button>
+
+          <div className="video-nav-controls">
+            <button className="nav-btn" onClick={goToPrevVideo}>
+              ‹
+            </button>
+            <button className="nav-btn" onClick={goToNextVideo}>
+              ›
+            </button>
+          </div>
         </div>
       )}
-      
+
       <div className="video-grid">
         {videos.map((url, i) => (
           <VideoThumbnail
@@ -108,9 +176,8 @@ export default function AnniversaryClient({ photos, videos }) {
           />
         ))}
       </div>
-      <div className="message-box">
-        {"To more memories :)"}
-      </div>
+
+      <div className="message-box">{"To more memories :)"}</div>
     </main>
   );
 }

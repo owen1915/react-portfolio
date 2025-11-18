@@ -6,7 +6,7 @@ export default function Carousel({ items }) {
   const [mounted, setMounted] = useState(false);
   const dragStartX = useRef(null);
   const dragStartRotation = useRef(0);
-  const isAutoRotating = useRef(false); // Start as false
+  const isAutoRotating = useRef(false);
   
   const totalItems = items.length;
   const anglePerItem = 2880 / totalItems;
@@ -30,10 +30,9 @@ export default function Carousel({ items }) {
     const animate = () => {
       if (isAutoRotating.current) {
         const currentTime = Date.now();
-        const delta = (currentTime - lastTime) / 1000; // seconds
+        const delta = (currentTime - lastTime) / 1000;
         lastTime = currentTime;
         
-        // Rotate 10 degrees per second (adjust speed here)
         setRotation(prev => prev + (10 * delta));
       } else {
         lastTime = Date.now();
@@ -55,13 +54,11 @@ export default function Carousel({ items }) {
   const handleMouseMove = (e) => {
     if (dragStartX.current === null) return;
     const diff = e.clientX - dragStartX.current;
-    // Convert pixel drag to rotation (adjust sensitivity here)
     setRotation(dragStartRotation.current - diff * 0.3);
   };
 
   const handleMouseUp = () => {
     dragStartX.current = null;
-    // Resume auto-rotation after 2 seconds
     setTimeout(() => {
       isAutoRotating.current = true;
     }, 2000);
@@ -74,6 +71,17 @@ export default function Carousel({ items }) {
       isAutoRotating.current = true;
     }, 2000);
   };
+
+  // Don't render carousel content until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <div className="carousel3d">
+        <button className="nav-btn left">‹</button>
+        <div className="carousel-track"></div>
+        <button className="nav-btn right">›</button>
+      </div>
+    );
+  }
 
   return (
     <div 
@@ -92,18 +100,12 @@ export default function Carousel({ items }) {
           const angle = (i * anglePerItem) - rotation;
           const radians = (angle * Math.PI) / 180;
           
-          // Position on a circle
           const radius = 450;
           const x = Math.sin(radians) * radius;
           const z = Math.cos(radians) * radius - 200;
           
-          // Scale based on Z depth
           const scale = 0.4 + (z + 400) / 1000;
-          
-          // Opacity based on position
           const opacity = Math.max(0.2, Math.min(1, (z + 400) / 500));
-          
-          // Blur items far from center
           const blur = Math.abs(x) > 350 ? 4 : 0;
           
           return (
