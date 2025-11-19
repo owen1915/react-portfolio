@@ -117,7 +117,7 @@ export default function AnniversaryClient({ photos, videos }) {
           <div className="heart-spinner">
             <span className="heart">❤️</span>
           </div>
-          <h2>Loading your memories...</h2>
+          <h2>Loading memories...</h2>
         </div>
       </div>
     );
@@ -177,7 +177,7 @@ export default function AnniversaryClient({ photos, videos }) {
         ))}
       </div>
 
-      <div className="message-box">{"To more memories :)"}</div>
+      <div className="message-box">{"more to come"}</div>
     </main>
   );
 }
