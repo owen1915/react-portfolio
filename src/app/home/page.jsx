@@ -62,12 +62,12 @@ export default function HomePage() {
       </div>
 
       {/* ==================== ABOUT SECTION ==================== */}
-      <div className="sectionWrapper blueSection" id="about-section">
+      <div className="sectionWrapper darkSection" id="about-section">
         <h2 className="sectionHeader">About</h2>
 
         {/* ABOUT */}
         <div className="textContainer">
-          <h1>About Me</h1>
+          <h1><strong>Background</strong></h1>
 
           <div className="aboutRow">
             <p>
@@ -86,7 +86,7 @@ export default function HomePage() {
 
         {/* EDUCATION */}
         <div className="textContainer">
-          <h1>Education</h1>
+          <h1><strong>Education</strong></h1>
           <p>
             In 2023, I graduated from Open High School, ranked #3 among public high schools in Virginia 
             and #161 nationally. I completed high school fourth in my class while simultaneously participating 
@@ -106,11 +106,12 @@ export default function HomePage() {
       </div>
 
       {/* ==================== EXPERIENCE SECTION ==================== */}
-      <div className="sectionWrapper whiteSection" id="experience-section">
+      <div className="sectionWrapper lightSection" id="experience-section">
         <h2 className="sectionHeader">Experience</h2>
 
+        {/* SKILLS / LANGUAGES */}
         <div className="textContainer">
-          <h1>Undergraduate Research</h1>
+          <h1><strong>Undergraduate Research</strong></h1>
           <p>
               I am conducting undergraduate research with {""} 
               <a 
@@ -137,15 +138,92 @@ export default function HomePage() {
               style={{ margin: "1rem", width: "95%", height: "auto", borderRadius: "12px" }}
           />
         </div>
+
+        <div className="skillsContainer">
+          <h3 className="skillsTitle">Technical Skills</h3>
+          <div className="skillsGrid">
+            {[
+              { name: "Java", category: "language" },
+              { name: "Python", category: "language" },
+              { name: "C", category: "language" },
+              { name: "C++", category: "language" },
+              { name: "C#", category: "language" },
+              { name: "JavaScript", category: "language" },
+              { name: "TypeScript", category: "language" },
+              { name: "React", category: "framework" },
+              { name: "Node.js", category: "framework" },
+              { name: "HTML", category: "web" },
+              { name: "CSS", category: "web" },
+              { name: "Assembly", category: "language" },
+              { name: "Swift", category: "language" },
+              { name: "SQL", category: "language" },
+              { name: "Shell", category: "language" },
+              { name: "Rust", category: "language" },
+              { name: "Kotlin", category: "language" },
+              { name: "Dart", category: "language" },
+              { name: "R", category: "language" },
+              { name: "Ruby", category: "language" },
+            ].map((skill, index) => (
+              <div 
+                key={skill.name} 
+                className={`skillBadge skillBadge--${skill.category}`}
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                {skill.name}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* ==================== PROJECTS SECTION ==================== */}
-      <div className="sectionWrapper blueSection" id="projects-section">
+      <div className="sectionWrapper darkSection" id="projects-section">
         <h2 className="sectionHeader">Projects</h2>
+
+        {/* CRATE TESTS */}
+        <div className="textContainer">
+          <h1><strong>CrateTests</strong></h1>
+          <p>
+            I developed CrateTests, a full-stack web application that leverages artificial intelligence 
+            to transform study materials into interactive learning tools. Users can upload lecture notes, 
+            textbook chapters, or any educational content, and the platform automatically generates 
+            personalized quizzes, flashcards, and study materials using advanced AI analysis. The system 
+            features adaptive questioning that adjusts difficulty based on user performance, a smart 
+            spaced repetition algorithm for optimal memorization, and a comprehensive analytics dashboard 
+            to track learning progress. Built with modern web technologies, CrateTests supports multiple 
+            file formats including PDFs, Word documents, and images, making it a versatile tool for 
+            students looking to study smarter, not harder.
+          </p>
+
+          <img
+            src="/cratetests.png"
+            alt="CrateTests Platform"
+            style={{ margin: "1rem", height: "400px", width: "auto", objectFit: "contain", borderRadius: "12px" }}
+          />
+
+          <a 
+            href="https://www.cratetests.com/home" 
+            target="_blank" 
+            rel="noreferrer"
+            style={{ 
+              display: "inline-block",
+              margin: "0.5rem 0 1rem 0",
+              padding: "0.8rem 1.5rem",
+              background: "#333",
+              color: "#fff",
+              borderRadius: "8px",
+              fontWeight: "bold",
+              textAlign: "center",
+              transition: "all 0.2s ease"
+            }}
+          >
+            Visit CrateTests →
+          </a>
+        </div>
 
         {/* ISO ENGINE */}
         <div className="textContainer">
-          <h1>Isometric 2D Game Engine</h1>
+          <h1><strong>Isometric 2D Game Engine</strong></h1>
           <p>
             As a personal project, I developed an isometric 2D game engine from
             the ground up, focusing on rendering, input handling, asset
@@ -168,7 +246,7 @@ export default function HomePage() {
 
         {/* 2D JAVA ENGINE */}
         <div className="textContainer">
-          <h1>2D Java Game Engine</h1>
+          <h1><strong>2D Java Game Engine</strong></h1>
           <p>
             While building my own tile-based 2D game engine using Java Swing, I
             learned a ton about how games actually work under the hood. I figured
