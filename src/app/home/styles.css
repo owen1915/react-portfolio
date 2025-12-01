@@ -1,5 +1,9 @@
 /* GLOBAL ------------------------------------------------------------ */
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     min-height: 100vh;
     min-width: 100vw;
@@ -29,8 +33,87 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5vh;
-    padding: 6vh 2vw;
+    gap: 0;
+    padding: 0;
+}
+
+/* FIXED NAVIGATION -------------------------------------------------- */
+
+.navContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.navButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.navButton:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navIcon {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.navDropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    min-width: 160px;
+    animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navDropdown button {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.navDropdown button:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.navDropdown button:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* HEADER ------------------------------------------------------------ */
@@ -38,6 +121,8 @@ a:hover {
 .headerContainer {
     width: 100%;
     text-align: center;
+    padding: 4vh 0 2vh 0;
+    background: linear-gradient(135deg, #b8e1ff 0%, #a1c4fd 50%, #cfd9ff 100%);
 }
 
 .header {
@@ -52,6 +137,49 @@ a:hover {
     opacity: 0.8;
 }
 
+/* SECTION WRAPPERS -------------------------------------------------- */
+
+.sectionWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh 2vw 6vh 2vw;
+    gap: 3vh;
+}
+
+.blueSection {
+    background: linear-gradient(135deg, #b8e1ff 0%, #a1c4fd 50%, #cfd9ff 100%);
+}
+
+.whiteSection {
+    background: #ffffff;
+}
+
+/* SECTION HEADERS --------------------------------------------------- */
+
+.sectionHeader {
+    font-family: "Courier New", monospace;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1b1b1b;
+    margin: 0 0 1rem 0;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.sectionHeader::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #333;
+    margin: 0.8rem auto 0 auto;
+    border-radius: 2px;
+}
+
 /* SECTION BOXES ----------------------------------------------------- */
 
 .textContainer {
@@ -59,8 +187,8 @@ a:hover {
     border: 1.5px solid rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: none;      
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);      
     border-radius: 16px;
     padding: 2rem 1.5rem;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -92,6 +220,17 @@ a:hover {
     border-radius: 12px;
     margin-top: 1rem;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* White section cards need slightly different styling */
+.whiteSection .textContainer {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.whiteSection .textContainer:hover {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
 }
 
 /* ABOUT SECTION ----------------------------------------------------- */
@@ -140,12 +279,31 @@ a:hover {
         width: 160px;
         height: 160px;
     }
+
+    .sectionHeader {
+        font-size: 2rem;
+    }
+
+    .navContainer {
+        top: 15px;
+        right: 15px;
+    }
+
+    .navButton {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navIcon {
+        font-size: 1.3rem;
+    }
 }
 
 /* CONTACT ----------------------------------------------------------- */
 
 .contactContainer {
     text-align: center;
+    padding: 2rem 0;
 }
 
 .contactWrapper {
@@ -164,6 +322,7 @@ a:hover {
     place-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: 0.2s ease;
+    cursor: pointer;
 }
 
 .contactWrapper a:hover {
@@ -182,6 +341,16 @@ a:hover {
 
 .contactWrapper a:hover img {
     filter: brightness(0) invert(1);
+}
+
+/* White section contact styling */
+.whiteSection .contactWrapper a {
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.whiteSection .contactWrapper a:hover {
+    background-color: #333;
 }
 
 /* EMAIL POPUP ------------------------------------------------------- */
