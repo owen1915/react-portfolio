@@ -196,7 +196,7 @@ export default function HomePage() {
           </p>
 
           <img
-            src="/cratetests.png"
+            src="https://i.imgur.com/4eNRqck.png"
             alt="CrateTests Platform"
             style={{ margin: "1rem", height: "400px", width: "auto", objectFit: "contain", borderRadius: "12px" }}
           />
