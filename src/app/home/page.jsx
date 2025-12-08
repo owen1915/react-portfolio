@@ -174,6 +174,37 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+
+        {/* COURSEWORK */}
+        <div className="textContainer">
+          <h1><strong>Related Coursework</strong></h1>
+          <div className="courseworkGrid">
+            {[
+              "Intro to Programming in C",
+              "Intro to Programming in Java",
+              "Intro to Programming in Python",
+              "Intro to Software Design",
+              "Software Design & Data Structures",
+              "Intro to Computer Organization",
+              "Intro to Computer Organization II",
+              "Mobile Software Development",
+              "Intro to Problem Solving in CS",
+              "Data Structures and Algorithms",
+              "Intermediate Software Design",
+              "Professionalism in Computing",
+              "Discrete Mathematics",
+              "Applied Combinatorics",
+            ].map((course, index) => (
+              <div 
+                key={course} 
+                className="courseBadge"
+                style={{ animationDelay: `${index * 0.03}s` }}
+              >
+                {course}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* ==================== PROJECTS SECTION ==================== */}
