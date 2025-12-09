@@ -9,13 +9,7 @@ html, body {
     min-width: 100vw;
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, 
-        #1a1f3a 0%, 
-        #2d1b3d 20%, 
-        #1e2a4a 40%, 
-        #2a1e3f 60%, 
-        #1f2937 80%, 
-        #1a1f3a 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     background-attachment: fixed;
     overscroll-behavior: none;
     color: #1b1b1b;
@@ -43,111 +37,190 @@ a:hover {
     padding: 0;
 }
 
-/* FIXED NAVIGATION -------------------------------------------------- */
+/* TOP NAVIGATION BAR ------------------------------------------------ */
 
-.navContainer {
+.topNav {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.5rem 2rem;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.navButton {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+.topNav button {
+    background: none;
     border: none;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.topNav button:first-child {
+    color: #00d9ff;
+}
+
+.topNav button:hover {
+    color: #00d9ff;
+    transform: translateY(-2px);
+}
+
+.topNav button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #00d9ff;
+    transition: width 0.3s ease;
+}
+
+.topNav button:hover::after {
+    width: 80%;
+}
+
+/* Mobile responsive for top nav */
+@media (max-width: 900px) {
+    .topNav {
+        gap: 1rem;
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .topNav button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+/* HERO SECTION ------------------------------------------------------ */
+
+.heroSection {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    border: 2px solid rgba(0, 0, 0, 0.475);
-}
-
-.navButton:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.navIcon {
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.navDropdown {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    min-width: 160px;
-    animation: dropdownFade 0.2s ease;
-}
-
-@keyframes dropdownFade {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.navDropdown button {
-    display: block;
-    width: 100%;
-    padding: 14px 20px;
-    border: none;
+    padding: 2rem;
     background: transparent;
-    text-align: left;
-    font-size: 1rem;
-    font-family: inherit;
-    color: #333;
-    cursor: pointer;
-    transition: background 0.15s ease;
 }
 
-.navDropdown button:hover {
-    background: rgba(0, 0, 0, 0.08);
-}
-
-.navDropdown button:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-/* HEADER ------------------------------------------------------------ */
-
-.headerContainer {
+.heroContent {
+    max-width: 1200px;
     width: 100%;
-    text-align: center;
-    padding: 4vh 0 2vh 0;
-    background: linear-gradient(135deg, #1a1f3a 0%, #2d1b3d 100%);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
 }
 
-.header {
-    font-size: 2.5rem;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 700;
-    letter-spacing: 2px;
+.heroText {
+    flex: 1;
     color: #ffffff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.header a:hover {
-    opacity: 0.85;
-    transform: scale(1.02);
-    display: inline-block;
+.heroGreeting {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #00d9ff;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 2px;
+}
+
+.heroName {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.heroTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #00d9ff;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 3px;
+}
+
+.heroDescription {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 2rem 0;
+    max-width: 500px;
+}
+
+.heroButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: #00d9ff;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+}
+
+.heroButton:hover {
+    background: #00b8d4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5);
+}
+
+.heroImage {
+    flex-shrink: 0;
+}
+
+.heroImage img {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(0, 217, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile responsive for hero */
+@media (max-width: 900px) {
+    .heroContent {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .heroName {
+        font-size: 2.5rem;
+    }
+
+    .heroTitle {
+        font-size: 1.2rem;
+    }
+
+    .heroDescription {
+        max-width: 100%;
+    }
+
+    .heroImage img {
+        width: 280px;
+        height: 280px;
+    }
 }
 
 /* SECTION WRAPPERS -------------------------------------------------- */
@@ -396,46 +469,65 @@ a:hover {
     background-color: #333;
 }
 
-/* SKILLS COMPONENT -------------------------------------------------- */
+/* SKILLS SECTION ---------------------------------------------------- */
 
-.skillsContainer {
-    width: min(900px, 85vw);
-    padding: 2rem;
-    background-color: #f5f5f5;
-    color: black;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
+.skillsSection {
+    width: min(1200px, 90vw);
+    margin: 4rem 0;
+    padding: 0;
 }
 
-.skillsTitle {
+.skillsSectionTitle {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 1.9rem;
-    font-weight: 600;
-    color: black;
-    margin: 0 0 1.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
     text-align: center;
-    letter-spacing: 0px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.skillsSectionSubtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 3rem 0;
+    text-align: left;
 }
 
 .skillsGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.skillBadge {
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px;
-    font-size: 1.05rem;
+.skillItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
     font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default;
+    padding: 1rem;
+    transition: all 0.3s ease;
     animation: fadeInUp 0.5s ease forwards;
     opacity: 0;
-    transform: translateY(10px);
+    gap: 0.5rem;
+}
+
+.skillIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.skillName {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
 }
 
 @keyframes fadeInUp {
@@ -445,90 +537,174 @@ a:hover {
     }
 }
 
-.skillBadge:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+.skillItem:hover {
+    color: #00d9ff;
+    transform: translateY(-5px);
 }
 
-/* All skill badges - Unified purple gradient */
-.skillBadge--language,
-.skillBadge--framework,
-.skillBadge--web {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-.skillBadge--language:hover,
-.skillBadge--framework:hover,
-.skillBadge--web:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+.skillItem:hover::before {
+    opacity: 0.15;
 }
 
 /* Mobile responsive for skills */
-@media (max-width: 600px) {
-    .skillsContainer {
-        padding: 1.5rem 1rem;
+@media (max-width: 900px) {
+    .skillsSectionTitle {
+        font-size: 2rem;
     }
-    
-    .skillsTitle {
-        font-size: 1.3rem;
-    }
-    
-    .skillBadge {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-    }
-    
+
     .skillsGrid {
-        gap: 0.6rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
-}
 
-/* COURSEWORK COMPONENT ---------------------------------------------- */
-
-.courseworkGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.courseBadge {
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default;
-    animation: fadeInUp 0.5s ease forwards;
-    opacity: 0;
-    transform: translateY(10px);
-    text-align: center;
-    line-height: 1.4;
-}
-
-.courseBadge:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-}
-
-/* Mobile responsive for coursework */
-@media (max-width: 600px) {
-    .courseworkGrid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-    }
-    
-    .courseBadge {
-        padding: 0.9rem 1rem;
+    .skillItem {
         font-size: 0.9rem;
+    }
+}
+
+/* PROJECT SECTION --------------------------------------------------- */
+
+.projectCard {
+    width: min(1200px, 90vw);
+    margin: 4rem 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.projectLeft {
+    flex-direction: row;
+}
+
+.projectRight {
+    flex-direction: row-reverse;
+}
+
+.projectContent {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectMedia {
+    flex: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectCard h1 {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 1rem;
+    text-align: left;
+}
+
+.projectCard h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #00d9ff, transparent);
+}
+
+.projectCard p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 2rem 0;
+    text-align: left;
+}
+
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    pointer-events: none;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+.projectVideo {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.projectImage {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.projectMedia .profileImage {
+    width: 65%;
+    height: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.projectLink {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: #00d9ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 2px solid #00d9ff;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+.projectLink:hover {
+    background: #00d9ff;
+    color: #1a1a1a;
+    transform: translateX(10px);
+}
+
+/* Mobile responsive for projects */
+@media (max-width: 900px) {
+    .projectCard {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+
+    .projectCard h1 {
+        font-size: 2rem;
+    }
+
+    .projectCard p {
+        font-size: 1rem;
+    }
+
+    .projectMedia {
+        width: 100%;
     }
 }
 
