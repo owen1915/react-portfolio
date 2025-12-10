@@ -6,6 +6,26 @@ import "./styles.css";
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    // tags divs with visible once scrolled into view
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+          console.log("🔥 revealing:", entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll(".reveal").forEach(elem => {
+      observer.observe(elem);
+    });
+
+  }, []);
+
+  
+
   // Technical skills with logo URLs
   const technicalSkills = [
     { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
@@ -64,15 +84,15 @@ export default function HomePage() {
       </nav>
 
       {/* HERO SECTION */}
-      <div className="heroSection" id="home-section">
+      <div className="heroSection reveal" id="home-section">
         <div className="heroContent">
           <div className="heroText">
             <p className="heroGreeting">HI THERE, I'M</p>
             <h1 className="heroName">Owen Goodman</h1>
             <p className="heroTitle">SOFTWARE DEVELOPER</p>
             <p className="heroDescription">
-              I'm a results-driven software developer with a passion for building thoughtful, 
-              efficient, and user-focused solutions.
+              I'm a results driven software developer with a passion for building thoughtful, 
+              efficient, and user focused solutions.
             </p>
             <button 
               className="heroButton"
@@ -89,10 +109,10 @@ export default function HomePage() {
 
       {/* ==================== ABOUT SECTION ==================== */}
       <div className="sectionWrapper darkSection" id="about-section">
-        <h2 className="sectionHeader">About</h2>
+        <h2 className="sectionHeader reveal">About</h2>
 
         {/* BACKGROUND */}
-        <div className="projectCard projectLeft">
+        <div className="projectCard projectLeft reveal">
           <div className="projectContent">
             <h1>Background</h1>
             <p>
@@ -109,7 +129,7 @@ export default function HomePage() {
         </div>
 
         {/* EDUCATION */}
-        <div className="projectCard projectLeft">
+        <div className="projectCard projectLeft reveal">
           <div className="projectMedia">
             <img src="https://i.imgur.com/tDD4T0B.png" alt="Education" className="projectImage" />
           </div>
@@ -132,7 +152,7 @@ export default function HomePage() {
         <h2 className="sectionHeader">Experience</h2>
 
         {/* UNDERGRADUATE RESEARCH */}
-        <div className="projectCard projectLeft">
+        <div className="projectCard projectLeft reveal">
           <div className="projectContent">
             <h1>Undergraduate Research</h1>
             <p>
@@ -157,7 +177,7 @@ export default function HomePage() {
         </div>
 
         {/* TECHNICAL SKILLS */}
-        <div className="skillsSection">
+        <div className="skillsSection reveal">
           <h1 id="technical-skills-title" className="skillsSectionTitle">
             Technical Skills
           </h1>
@@ -175,9 +195,9 @@ export default function HomePage() {
         </div>
 
         {/* COURSEWORK */}
-        <div className="skillsSection">
+        <div className="skillsSection reveal">
           <h1 className="skillsSectionTitle">Related Coursework</h1>
-          <div className="skillsGrid">
+          <div className="skillsGrid-coursework">
             {[
               "Intro to Programming in C",
               "Intro to Programming in Java",
@@ -210,7 +230,7 @@ export default function HomePage() {
         <h2 className="sectionHeader">Projects</h2>
 
         {/* CRATE TESTS */}
-        <div className="projectCard projectLeft">
+        <div className="projectCard projectLeft reveal">
           <div className="projectContent">
             <h1>CrateTests</h1>
             <p>
@@ -241,7 +261,7 @@ export default function HomePage() {
         </div>
 
         {/* ISO ENGINE */}
-        <div className="projectCard projectLeft">
+        <div className="projectCard projectLeft reveal">
           <div className="projectMedia">
             <video
               autoPlay
@@ -267,7 +287,7 @@ export default function HomePage() {
         </div>
 
         {/* 2D JAVA ENGINE */}
-        <div className="projectCard projectLeft">
+        <div className="projectCard projectLeft reveal">
           <div className="projectContent">
             <h1>2D Java Game Engine</h1>
             <p>
@@ -287,6 +307,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      
 
       {/* ==================== CONTACT SECTION ==================== */}
       <div className="sectionWrapper whiteSection" id="contact-section">

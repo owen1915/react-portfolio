@@ -96,7 +96,7 @@ a:hover {
 /* Mobile responsive for top nav */
 @media (max-width: 900px) {
     .topNav {
-        gap: 1rem;
+        gap: 0.5rem;
         padding: 1rem;
         flex-wrap: wrap;
     }
@@ -477,6 +477,18 @@ a:hover {
     padding: 0;
 }
 
+.reveal {
+  opacity: 0 !important; 
+  transform: translateY(50px);
+  transition: 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+
 .skillsSectionTitle {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 2.5rem;
@@ -493,6 +505,13 @@ a:hover {
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 3rem 0;
     text-align: left;
+}
+
+.skillsGrid-coursework {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .skillsGrid {
@@ -513,9 +532,8 @@ a:hover {
     font-weight: 500;
     padding: 1rem;
     transition: all 0.3s ease;
-    animation: fadeInUp 0.5s ease forwards;
-    opacity: 0;
-    gap: 0.5rem;
+    animation: fadeInUp 2s ease forwards;
+    gap: 1rem;
 }
 
 .skillIcon {
@@ -523,24 +541,27 @@ a:hover {
     height: 60px;
     object-fit: contain;
     transition: transform 0.3s ease;
+    pointer-events: none;
 }
 
 .skillName {
-    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
 }
 
 @keyframes fadeInUp {
+    from {
+        opacity: 0;
+    }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
 .skillItem:hover {
-    color: #00d9ff;
-    transform: translateY(-5px);
+    color: #00ff6e;
+    transform: translateY(-10px);
 }
+
 
 .skillItem:hover::before {
     opacity: 0.15;
@@ -553,6 +574,11 @@ a:hover {
     }
 
     .skillsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .skillsGrid-coursework {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
