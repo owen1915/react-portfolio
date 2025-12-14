@@ -1,10 +1,29 @@
 "use client";
 
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import "./styles.css";
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (!navRef.current) return;
+
+    const updateNavHeight = () => {
+      document.documentElement.style.setProperty(
+        "--nav-height",
+        `${navRef.current.offsetHeight}px`
+      );
+    };
+
+    updateNavHeight();
+
+    const observer = new ResizeObserver(updateNavHeight);
+    observer.observe(navRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     // tags divs with visible once scrolled into view
@@ -13,7 +32,6 @@ export default function HomePage() {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
-          console.log("🔥 revealing:", entry.target);
         }
       });
     });
@@ -55,9 +73,22 @@ export default function HomePage() {
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (!element) {
+      return;
     }
+
+    const navHeight = navRef.current?.offsetHeight ?? 0;
+
+    
+
+    const y = 
+      element.getBoundingClientRect().top + 
+      window.pageYOffset -
+      navHeight;
+    
+    console.log(y);
+
+    window.scrollTo({ top: y, behavior: "smooth"});
     setMenuOpen(false);
   };
 
@@ -75,7 +106,7 @@ export default function HomePage() {
   return (
     <div className="pageContainer">
       {/* TOP NAVIGATION BAR */}
-      <nav className="topNav">
+      <nav ref={navRef} className="topNav">
         <button onClick={() => scrollToSection("home-section")}>Home</button>
         <button onClick={() => scrollToSection("about-section")}>About</button>
         <button onClick={() => scrollToSection("experience-section")}>Experience</button>
@@ -312,7 +343,7 @@ export default function HomePage() {
       {/* ==================== CONTACT SECTION ==================== */}
       <div className="sectionWrapper whiteSection" id="contact-section">
         <div className="contactContainer">
-          <div className="header" style={{ marginBottom: "1rem" }}>
+          <div className="header" style={{ marginBottom: "1rem"}}>
             Contact Me
           </div>
 
