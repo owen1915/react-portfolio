@@ -618,6 +618,10 @@ a:hover {
     flex-direction: column;
 }
 
+.projectContentBackground {
+
+}
+
 .projectMedia {
     flex: 1.4;
     display: flex;
@@ -685,6 +689,16 @@ a:hover {
 .projectImage {
     width: 100%;
     height: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.projectImageSoloContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.projectImageSolo {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     border: 2px solid rgba(0, 217, 255, 0.2);
 }

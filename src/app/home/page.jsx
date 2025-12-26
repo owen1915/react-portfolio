@@ -120,9 +120,9 @@ export default function HomePage() {
           <div className="heroText">
             <p className="heroGreeting">HI THERE, I'M</p>
             <h1 className="heroName">Owen Goodman</h1>
-            <p className="heroTitle">SOFTWARE DEVELOPER</p>
+            <p className="heroTitle">Computer Scientist</p>
             <p className="heroDescription">
-              I'm a results driven software developer with a passion for building thoughtful, 
+              I'm a results driven computer scientist with a passion for building thoughtful, 
               efficient, and user focused solutions.
             </p>
             <button 
@@ -144,7 +144,7 @@ export default function HomePage() {
 
         {/* BACKGROUND */}
         <div className="projectCard projectLeft reveal">
-          <div className="projectContent">
+          <div className="projectContentBackground">
             <h1>Background</h1>
             <p>
               I'm a results-driven software developer with a passion for building thoughtful, efficient, and user-focused solutions. 
@@ -154,8 +154,10 @@ export default function HomePage() {
               workflows.
             </p>
           </div>
-          <div className="projectMedia">
-            <img src="https://i.imgur.com/J4FEv59.png" alt="Profile" className="projectImage" />
+          <div className="projectImageSoloContainer">
+            <div className="projectMedia">
+              <img src="https://i.imgur.com/fgZdkqM.jpeg" alt="Profile" className="projectImageSolo" />
+            </div>
           </div>
         </div>
 
