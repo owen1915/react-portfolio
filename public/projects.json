@@ -1,0 +1,28 @@
+[
+  {
+    "id": "cratetests",
+    "name": "CrateTests",
+    "shortDesc": "AI-powered study tool that transforms notes into quizzes and flashcards.",
+    "fullDesc": "A full-stack web application that uses AI to transform study materials into interactive learning tools. Upload notes or documents, and the platform automatically generates personalized quizzes and flashcards with adaptive difficulty and spaced repetition algorithms. Built with a React frontend and Node.js backend, integrating machine learning models for intelligent content generation.",
+    "link": "https://www.cratetests.com/home",
+    "github": null,
+    "tech": ["React", "Node.js", "AI/ML"],
+    "media": {
+      "type": "youtube",
+      "src": "https://www.youtube.com/embed/Pw-S21uAH2E?autoplay=1&mute=1&loop=1&playlist=Pw-S21uAH2E&controls=0&modestbranding=1"
+    }
+  },
+  {
+    "id": "iso-engine",
+    "name": "Isometric 2D Game Engine",
+    "shortDesc": "Custom game engine with rendering, input handling, and tile-based world design.",
+    "fullDesc": "Developed an isometric 2D game engine from the ground up, focusing on rendering, input handling, asset management, and layered tile-based world design. This experience challenged me to think critically about performance, architecture, and modular design principles. Gained a deeper understanding of graphics rendering pipelines, coordinate transformations for isometric projection, and efficient game loop implementation.",
+    "link": null,
+    "github": "https://github.com/owen1915/2D-Isometric-Game-Engine",
+    "tech": ["Java", "Graphics Programming"],
+    "media": {
+      "type": "video",
+      "src": "https://i.imgur.com/CxnE4zz.mp4"
+    }
+  }
+]
