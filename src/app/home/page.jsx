@@ -1,11 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./styles.css";
 
 export default function AboutPage() {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved === "true") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem("darkMode", newMode);
+    document.documentElement.classList.toggle("dark");
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText("owengoodman3@gmail.com");
@@ -71,6 +87,10 @@ export default function AboutPage() {
       <footer>
         <p>Owen Goodman © {new Date().getFullYear()}</p>
       </footer>
+
+      <button className="theme-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
+        {darkMode ? "☀️" : "🌙"}
+      </button>
     </div>
   );
 }

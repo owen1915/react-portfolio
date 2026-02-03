@@ -1,9 +1,26 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import "../styles.css";
 
 export default function ExperiencePage() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved === "true") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem("darkMode", newMode);
+    document.documentElement.classList.toggle("dark");
+  };
   const courses = [
     "Data Structures and Algorithms",
     "Software Design & Data Structures",
@@ -85,6 +102,10 @@ export default function ExperiencePage() {
       <footer>
         <p>Owen Goodman © {new Date().getFullYear()}</p>
       </footer>
+
+      <button className="theme-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
+        {darkMode ? "☀️" : "🌙"}
+      </button>
     </div>
   );
 }

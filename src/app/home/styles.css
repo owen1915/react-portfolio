@@ -479,3 +479,190 @@ footer p {
     padding: 1rem;
   }
 }
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode */
+:root.dark body {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+:root.dark .container {
+  color: #e5e5e5;
+}
+
+:root.dark header h1 {
+  color: #fff;
+}
+
+:root.dark .subtitle {
+  color: #999;
+}
+
+:root.dark nav {
+  border-bottom-color: #333;
+}
+
+:root.dark nav a {
+  color: #999;
+}
+
+:root.dark nav a:hover,
+:root.dark nav a.active {
+  color: #fff;
+}
+
+:root.dark section h2 {
+  color: #666;
+}
+
+:root.dark section p {
+  color: #bbb;
+}
+
+:root.dark .item h3 {
+  color: #fff;
+}
+
+:root.dark .item h3 a {
+  color: #fff;
+}
+
+:root.dark .item h3 a:hover {
+  color: #6eb5ff;
+}
+
+:root.dark .org {
+  color: #999;
+}
+
+:root.dark .org a {
+  color: #6eb5ff;
+}
+
+:root.dark .tag,
+:root.dark .course {
+  background: #2a2a2a;
+  color: #bbb;
+}
+
+:root.dark .link {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #e5e5e5;
+}
+
+:root.dark .link:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #121212;
+}
+
+:root.dark .resume-link {
+  background: #fff;
+  border-color: #fff;
+  color: #121212;
+}
+
+:root.dark .resume-link:hover {
+  background: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
+:root.dark footer {
+  border-top-color: #333;
+}
+
+:root.dark footer p {
+  color: #666;
+}
+
+:root.dark .theme-toggle {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+:root.dark .project-card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+:root.dark .project-card:hover {
+  border-color: #555;
+}
+
+:root.dark .project-card-content h3 {
+  color: #fff;
+}
+
+:root.dark .project-card-content p {
+  color: #999;
+}
+
+:root.dark .project-card-arrow {
+  color: #555;
+}
+
+:root.dark .project-card:hover .project-card-arrow {
+  color: #fff;
+}
+
+:root.dark .modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+:root.dark .modal {
+  background: #1a1a1a;
+}
+
+:root.dark .modal-close {
+  background: rgba(255, 255, 255, 0.1);
+  color: #999;
+}
+
+:root.dark .modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+:root.dark .modal-media {
+  background: #121212;
+}
+
+:root.dark .modal-content h3 {
+  color: #fff;
+}
+
+:root.dark .modal-content p {
+  color: #bbb;
+}
+
+:root.dark .section-hint {
+  color: #666;
+}
+
+:root.dark .about-text p {
+  color: #bbb;
+}
