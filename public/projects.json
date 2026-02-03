@@ -24,5 +24,18 @@
       "type": "video",
       "src": "https://i.imgur.com/CxnE4zz.mp4"
     }
+  },
+  {
+    "id": "win-usage-monitor",
+    "name": "Windows Application Usage Monitor",
+    "shortDesc": "Tracks active usage time for all foreground applications on Windows.",
+    "fullDesc": "Developed a native Windows application in C that monitors active usage time for all foreground applications, including browsers, games, and productivity software. Data is persisted in JSON across sessions and served via a local web server, with an interactive web UI built with HTML/CSS/JS featuring tables and charts to visualize application usage. This project involved low-level Windows API programming, high-resolution timers, and designing a lightweight local web interface.",
+    "link": null,
+    "github": "https://github.com/owen1915/system-monitor",
+    "tech": ["C", "Win32 API", "HTML/CSS/JS", "Local Web Server"],
+    "media": {
+      "type": "image",
+      "src": "https://i.imgur.com/enP7JhV.png"
+    }
   }
 ]

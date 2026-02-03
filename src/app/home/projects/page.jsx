@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import RotatingSubtitle from "../RotatingSubtitle";
 import "../styles.css";
 
 export default function ProjectsPage() {
@@ -44,13 +45,14 @@ export default function ProjectsPage() {
     <div className="container">
       <header>
         <h1>Owen Goodman</h1>
-        <p className="subtitle">Software Developer</p>
+        <RotatingSubtitle className="subtitle" />
       </header>
 
       <nav>
         <Link href="/home">About</Link>
         <Link href="/home/experience">Experience</Link>
         <Link href="/home/projects" className="active">Projects</Link>
+        <Link href="/home/contact">Contact</Link>
       </nav>
 
       <main>

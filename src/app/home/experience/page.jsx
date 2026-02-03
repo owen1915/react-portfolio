@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import RotatingSubtitle from "../RotatingSubtitle";
 import "../styles.css";
 
 export default function ExperiencePage() {
@@ -31,19 +32,22 @@ export default function ExperiencePage() {
     "Professionalism in Computing",
     "Discrete Mathematics",
     "Applied Combinatorics",
+    "Systems",
+    "Ethics in Computer Science"
   ];
 
   return (
     <div className="container">
       <header>
         <h1>Owen Goodman</h1>
-        <p className="subtitle">Software Developer</p>
+        <RotatingSubtitle className="subtitle" />
       </header>
 
       <nav>
         <Link href="/home">About</Link>
         <Link href="/home/experience" className="active">Experience</Link>
         <Link href="/home/projects">Projects</Link>
+        <Link href="/home/contact">Contact</Link>
       </nav>
 
       <main>
@@ -52,7 +56,7 @@ export default function ExperiencePage() {
           <div className="item">
             <h3>Virginia Tech</h3>
             <span className="org">Master of Engineering in Computer Science</span>
-            <p>Expected Spring 2027 (Accelerated Program)</p>
+            <p>Expected Spring 2027</p>
           </div>
           <div className="item">
             <h3>Virginia Tech</h3>
@@ -61,7 +65,7 @@ export default function ExperiencePage() {
           </div>
           <div className="item">
             <h3>Reynolds Community College</h3>
-            <span className="org">Associate Degree — Dual Enrollment</span>
+            <span className="org">Associate Degree, Dual Enrollment</span>
             <p>Graduated 2023</p>
           </div>
           <div className="item">
@@ -76,7 +80,7 @@ export default function ExperiencePage() {
           <div className="item">
             <h3>Undergraduate Researcher</h3>
             <span className="org">
-              Virginia Tech —{" "}
+              Virginia Tech, {" "}
               <a href="https://che.vt.edu/People/faculty/Achenie.html" target="_blank" rel="noreferrer">
                 Dr. Luke Achenie
               </a>
