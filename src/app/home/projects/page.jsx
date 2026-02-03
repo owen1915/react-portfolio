@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import RotatingSubtitle from "../RotatingSubtitle";
+import VoiceDemo from "./VoiceDemo";
 import "../styles.css";
 
 export default function ProjectsPage() {
@@ -116,6 +117,9 @@ export default function ProjectsPage() {
                   alt={selectedProject.name}
                   className="modal-image"
                 />
+              )}
+              {selectedProject.media.type === "voice-demo" && (
+                <VoiceDemo />
               )}
             </div>
 

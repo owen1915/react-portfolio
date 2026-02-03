@@ -1,5 +1,18 @@
 [
   {
+    "id": "voice-classifier",
+    "name": "Voice Age & Gender Classifier",
+    "shortDesc": "ML model that predicts age group and gender from voice recordings.",
+    "fullDesc": "A machine learning system trained on Mozilla Common Voice dataset to classify speakers by age group and gender from audio. Features a CNN architecture processing MFCC audio features, achieving 87% age accuracy and 99% gender accuracy. Try it yourself by recording your voice below!",
+    "link": null,
+    "github": null,
+    "tech": ["Python", "PyTorch", "ONNX", "Flask", "AI/ML"],
+    "media": {
+      "type": "voice-demo",
+      "src": null
+    }
+  },
+  {
     "id": "cratetests",
     "name": "CrateTests",
     "shortDesc": "AI-powered study tool that transforms notes into quizzes and flashcards.",
