@@ -43,9 +43,14 @@ export default function ExperiencePage() {
             <p>Expected Spring 2026</p>
           </div>
           <div className="item">
+            <h3>Reynolds Community College</h3>
+            <span className="org">Associate Degree — Dual Enrollment</span>
+            <p>Graduated 2023</p>
+          </div>
+          <div className="item">
             <h3>Open High School</h3>
-            <span className="org">Ranked #3 in Virginia, #161 Nationally</span>
-            <p>Graduated 4th in class with Associate Degree (Early College Academy)</p>
+            <span className="org">Ranked #2 in Virginia, #62 Nationally</span>
+            <p>Graduated 2023, 4th in class</p>
           </div>
         </section>
 
