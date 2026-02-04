@@ -9,34 +9,56 @@ const TITLES = [
   "ai engineer"
 ];
 
-const ROTATE_MS = 2400;
-const STORAGE_KEY = "subtitleStartTime";
+const TYPING_MS = 90;
+const DELETING_MS = 55;
+const PAUSE_AFTER_TYPED_MS = 1200;
+const PAUSE_AFTER_DELETED_MS = 250;
+const STORAGE_KEY = "subtitleIndex";
 
 export default function RotatingSubtitle({ className = "" }) {
   const [index, setIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let startTime = Number(localStorage.getItem(STORAGE_KEY));
-    if (!startTime) {
-      startTime = Date.now();
-      localStorage.setItem(STORAGE_KEY, String(startTime));
+    const storedIndex = Number(localStorage.getItem(STORAGE_KEY));
+    if (!Number.isNaN(storedIndex) && storedIndex >= 0 && storedIndex < TITLES.length) {
+      setIndex(storedIndex);
+    }
+  }, []);
+
+  useEffect(() => {
+    let timeoutId;
+    const fullText = TITLES[index];
+
+    if (!isDeleting && displayText.length < fullText.length) {
+      timeoutId = setTimeout(() => {
+        setDisplayText(fullText.slice(0, displayText.length + 1));
+      }, TYPING_MS);
+    } else if (!isDeleting && displayText.length === fullText.length) {
+      timeoutId = setTimeout(() => {
+        setIsDeleting(true);
+      }, PAUSE_AFTER_TYPED_MS);
+    } else if (isDeleting && displayText.length > 0) {
+      timeoutId = setTimeout(() => {
+        setDisplayText(fullText.slice(0, displayText.length - 1));
+      }, DELETING_MS);
+    } else if (isDeleting && displayText.length === 0) {
+      timeoutId = setTimeout(() => {
+        setIsDeleting(false);
+        const nextIndex = (index + 1) % TITLES.length;
+        setIndex(nextIndex);
+        localStorage.setItem(STORAGE_KEY, String(nextIndex));
+      }, PAUSE_AFTER_DELETED_MS);
     }
 
-    const updateIndex = () => {
-      const elapsed = Date.now() - startTime;
-      const nextIndex = Math.floor(elapsed / ROTATE_MS) % TITLES.length;
-      setIndex(nextIndex);
-    };
-
-    updateIndex();
-    const interval = setInterval(updateIndex, 250);
-
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(timeoutId);
+  }, [displayText, index, isDeleting]);
 
   return (
     <p className={className} aria-live="polite">
-      {TITLES[index]}
+      {displayText}
+      <span className="typing-cursor" aria-hidden="true">_</span>
     </p>
   );
 }
