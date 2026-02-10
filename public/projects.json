@@ -1,5 +1,31 @@
 [
   {
+    "id": "cratetests",
+    "name": "CrateTests",
+    "shortDesc": "AI-powered study tool that transforms notes into quizzes and flashcards.",
+    "fullDesc": "A full-stack web application SaaS that uses AI to transform study materials into interactive learning tools. Upload notes or documents, and the platform automatically generates personalized quizzes and flashcards with adaptive difficulty and spaced repetition algorithms. Built with a React frontend and Node.js backend, integrating machine learning models for intelligent content generation.",
+    "link": "https://www.cratetests.com/home",
+    "github": null,
+    "tech": ["React", "Node.js", "AI/ML", "FullStack", "SaaS"],
+    "media": {
+      "type": "image",
+      "src": "https://i.imgur.com/kLW3HpP.png"
+    }
+  },
+  {
+    "id": "structsprint",
+    "name": "StructSprint",
+    "shortDesc": "Interactive coding platform for practicing data structures and algorithms in Java, C, and Python.",
+    "fullDesc": "A full-stack web application that provides interactive coding challenges focused on data structures and algorithms. Users can solve problems in Java or C, with real-time code execution and automated test validation powered by Judge0. Built with React frontend and Firebase Cloud Functions backend, featuring 30+ curated challenges covering linked lists, binary trees, graphs, stacks, queues, and arrays. Each challenge includes comprehensive test cases, instant feedback, in depth descriptions, and support for both function-based and class-based implementations.",
+    "link": "https://struct-sprint.vercel.app/",
+    "github": null,
+    "tech": ["React", "Firebase", "Cloud Functions", "Judge0", "Java", "C", "FullStack", "Python"],
+    "media": {
+      "type": "image",
+      "src": "https://i.imgur.com/WPCPHZQ.png"
+    }
+  },
+  {
     "id": "voice-classifier",
     "name": "Voice Age & Gender Classifier",
     "shortDesc": "ML model that predicts age group and gender from voice recordings.",
@@ -10,19 +36,6 @@
     "media": {
       "type": "voice-demo",
       "src": null
-    }
-  },
-  {
-    "id": "cratetests",
-    "name": "CrateTests",
-    "shortDesc": "AI-powered study tool that transforms notes into quizzes and flashcards.",
-    "fullDesc": "A full-stack web application that uses AI to transform study materials into interactive learning tools. Upload notes or documents, and the platform automatically generates personalized quizzes and flashcards with adaptive difficulty and spaced repetition algorithms. Built with a React frontend and Node.js backend, integrating machine learning models for intelligent content generation.",
-    "link": "https://www.cratetests.com/home",
-    "github": null,
-    "tech": ["React", "Node.js", "AI/ML"],
-    "media": {
-      "type": "youtube",
-      "src": "https://www.youtube.com/embed/Pw-S21uAH2E?autoplay=1&mute=1&loop=1&playlist=Pw-S21uAH2E&controls=0&modestbranding=1"
     }
   },
   {

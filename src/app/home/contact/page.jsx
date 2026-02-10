@@ -105,7 +105,7 @@ export default function ContactPage() {
             GitHub
           </a>
           <a href="/resume.pdf" download className="link resume-link">
-            Résumé ⬇️
+            Download Resume
           </a>
         </div>
       </section>
