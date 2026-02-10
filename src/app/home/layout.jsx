@@ -27,8 +27,10 @@ export default function HomeLayout({ children }) {
 
   const linkClass = (href) => (pathname === href ? "active" : "");
 
+  const isResume = pathname === "/home/resume";
+
   return (
-    <div className="container">
+    <div className={`container${isResume ? " container-wide" : ""}`}>
       <header>
         <h1>Owen Goodman</h1>
         <RotatingSubtitle className="subtitle" />
@@ -38,6 +40,7 @@ export default function HomeLayout({ children }) {
         <Link href="/home" className={linkClass("/home")}>About</Link>
         <Link href="/home/experience" className={linkClass("/home/experience")}>Experience</Link>
         <Link href="/home/projects" className={linkClass("/home/projects")}>Projects</Link>
+        <Link href="/home/resume" className={linkClass("/home/resume")}>Resume</Link>
         <Link href="/home/contact" className={linkClass("/home/contact")}>Contact</Link>
       </nav>
 
