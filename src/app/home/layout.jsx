@@ -40,6 +40,7 @@ export default function HomeLayout({ children }) {
         <Link href="/home" className={linkClass("/home")}>About</Link>
         <Link href="/home/experience" className={linkClass("/home/experience")}>Experience</Link>
         <Link href="/home/projects" className={linkClass("/home/projects")}>Projects</Link>
+        <Link href="/home/games" className={linkClass("/home/games")}>Games</Link>
         <Link href="/home/resume" className={linkClass("/home/resume")}>Resume</Link>
         <Link href="/home/contact" className={linkClass("/home/contact")}>Contact</Link>
       </nav>

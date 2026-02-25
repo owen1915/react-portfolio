@@ -1012,3 +1012,511 @@ footer p {
     font-size: 1.75rem;
   }
 }
+
+/* Typing Race Game Styles */
+.typing-race-game {
+  margin-top: 2rem;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+/* Test Selector */
+.test-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.duration-selector {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.duration-btn {
+  font-size: 0.9rem;
+  color: #666;
+  background: #f0f0f0;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.duration-btn:hover {
+  background: #e5e5e5;
+  color: #1a1a1a;
+}
+
+.duration-btn.active {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.start-btn {
+  margin-top: 1rem;
+}
+
+/* Game Header */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.time-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-value {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.ready-hint {
+  font-size: 0.9rem;
+  color: #999;
+  margin-left: 1rem;
+}
+
+.game-stats-inline {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+/* Game Stats (old) */
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Text Passage Display */
+.text-passage {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2;
+  text-align: left;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.text-passage::-webkit-scrollbar {
+  width: 6px;
+}
+
+.text-passage::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.text-passage::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.text-passage::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.passage-word {
+  display: inline;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.passage-word.completed {
+  color: #999;
+  opacity: 0.6;
+}
+
+.passage-word.error-word {
+  color: #e53935;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.passage-word.current-word {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.passage-word.opponent-word {
+  background: rgba(255, 152, 0, 0.25);
+  color: #ff9800;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+/* Character Highlighting within Text Passage */
+.char {
+  display: inline;
+  transition: all 0.05s;
+}
+
+/* User's typing */
+.user-char.correct {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.user-char.incorrect {
+  color: #e53935;
+  background: rgba(229, 57, 53, 0.15);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.user-char.cursor {
+  border-left: 2px solid #0066cc;
+  margin-left: 1px;
+  animation: cursor-pulse 1s infinite;
+}
+
+@keyframes cursor-pulse {
+  0%, 100% { border-color: #0066cc; }
+  50% { border-color: transparent; }
+}
+
+
+/* Typing Input */
+.typing-input {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border-color 0.2s;
+  text-align: center;
+}
+
+.typing-input:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+.typing-input.error {
+  border-color: #e53935;
+  background: rgba(229, 57, 53, 0.05);
+}
+
+.typing-input::placeholder {
+  color: #999;
+}
+
+/* Results */
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.results-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.results-title.user-won {
+  color: #2e7d32;
+}
+
+.results-title.opponent-won {
+  color: #d32f2f;
+}
+
+.results-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.result-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.results-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Dark Mode - Typing Race Game */
+:root.dark .loading {
+  color: #999;
+}
+
+:root.dark .duration-btn {
+  background: #2a2a2a;
+  color: #bbb;
+}
+
+:root.dark .duration-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+:root.dark .duration-btn.active {
+  background: #fff;
+  color: #121212;
+}
+
+:root.dark .game-header {
+  border-bottom-color: #333;
+}
+
+:root.dark .time-value {
+  color: #fff;
+}
+
+:root.dark .ready-hint {
+  color: #666;
+}
+
+:root.dark .game-stats {
+  border-bottom-color: #333;
+}
+
+:root.dark .stat-label {
+  color: #666;
+}
+
+:root.dark .stat-value {
+  color: #fff;
+}
+
+:root.dark .text-passage {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+:root.dark .text-passage::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+:root.dark .text-passage::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+:root.dark .passage-word {
+  color: #bbb;
+}
+
+:root.dark .passage-word.completed {
+  color: #666;
+}
+
+:root.dark .passage-word.error-word {
+  color: #ff8a80;
+  opacity: 0.7;
+}
+
+:root.dark .passage-word.current-word {
+  color: #fff;
+}
+
+:root.dark .passage-word.opponent-word {
+  background: rgba(255, 183, 77, 0.25);
+  color: #ffb74d;
+}
+
+:root.dark .user-char.correct {
+  color: #fff;
+}
+
+:root.dark .user-char.incorrect {
+  color: #ff8a80;
+  background: rgba(255, 138, 128, 0.15);
+}
+
+:root.dark .user-char.cursor {
+  border-left-color: #6eb5ff;
+  animation: cursor-pulse-dark 1s infinite;
+}
+
+@keyframes cursor-pulse-dark {
+  0%, 100% { border-color: #6eb5ff; }
+  50% { border-color: transparent; }
+}
+
+
+:root.dark .typing-input {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #e5e5e5;
+}
+
+:root.dark .typing-input:focus {
+  border-color: #fff;
+}
+
+:root.dark .typing-input.error {
+  border-color: #ff8a80;
+  background: rgba(255, 138, 128, 0.05);
+}
+
+:root.dark .typing-input::placeholder {
+  color: #666;
+}
+
+:root.dark .results-title {
+  color: #fff;
+}
+
+:root.dark .results-title.user-won {
+  color: #66bb6a;
+}
+
+:root.dark .results-title.opponent-won {
+  color: #ef5350;
+}
+
+:root.dark .result-label {
+  color: #666;
+}
+
+:root.dark .result-value {
+  color: #fff;
+}
+
+/* Mobile - Typing Race Game */
+@media (max-width: 600px) {
+  .duration-selector {
+    justify-content: center;
+  }
+
+  .game-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .time-value {
+    font-size: 2.5rem;
+  }
+
+  .game-stats-inline {
+    gap: 1.5rem;
+  }
+
+  .game-stats {
+    gap: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .text-passage {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    padding: 1.5rem;
+    max-height: 250px;
+  }
+
+  .typing-input {
+    font-size: 1rem;
+  }
+
+  .ready-hint {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .results-title {
+    font-size: 1.5rem;
+  }
+
+  .results-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .result-value {
+    font-size: 1.5rem;
+  }
+
+  .results-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .results-actions .link {
+    width: 100%;
+    text-align: center;
+  }
+}
