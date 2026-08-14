@@ -24,12 +24,19 @@ export default function AboutPage() {
             <p>
               Results-driven software developer with a passion for building thoughtful,
               efficient, and user-focused solutions. Interested in AI, LLMs, symbolic
-              regression, and intelligent systems for solving complex technical challenges.
+              regression, developer tooling, and intelligent systems for solving complex
+              technical challenges.
             </p>
             <p>
-              Currently finishing my B.S. in Computer Science at Virginia Tech this Spring 2026,
-              while simultaneously pursuing an accelerated Master of Engineering in Computer Science,
+              I graduated with my B.S. in Computer Science from Virginia Tech in Spring 2026
+              and am now finishing an accelerated Master of Engineering in Computer Science,
               expected Spring 2027.
+            </p>
+            <p>
+              This past summer I was a DevOps engineering intern at Kinsale Insurance, where I
+              built OpsKiosk &mdash; an internal inventory platform that makes metadata from
+              120+ GitLab projects searchable in one place, now used by 50+ engineers. This
+              fall I&rsquo;m a teaching assistant for Computer Systems at Virginia Tech.
             </p>
           </div>
         </div>

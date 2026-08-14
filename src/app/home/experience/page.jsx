@@ -25,7 +25,7 @@ export default function ExperiencePage() {
         <div className="item">
           <h3>Virginia Tech</h3>
           <span className="org">Bachelor of Science in Computer Science</span>
-          <p>Expected Spring 2026</p>
+          <p>Graduated Spring 2026</p>
         </div>
         <div className="item">
           <h3>Reynolds Community College</h3>
@@ -40,6 +40,37 @@ export default function ExperiencePage() {
       </section>
 
       <section>
+        <h2>Experience</h2>
+        <div className="item">
+          <h3>DevOps Engineer Intern</h3>
+          <span className="org">Kinsale Insurance &mdash; Richmond, VA</span>
+          <p>May 2026 &ndash; August 2026</p>
+          <p>
+            Built OpsKiosk, a centralized software inventory platform that
+            automatically pulls metadata &mdash; ownership, dependencies,
+            pipeline health, and recent activity &mdash; from 120+ GitLab
+            projects and makes it searchable in one place. Replaced hours of
+            manual repository-by-repository searching with a single query, and
+            was adopted by 50+ engineers and managers as the source of truth
+            for software inventory.
+          </p>
+        </div>
+        <div className="item">
+          <h3>Teaching Assistant, Computer Systems</h3>
+          <span className="org">
+            Virginia Tech, Department of Computer Science
+          </span>
+          <p>August 2026 &ndash; Present</p>
+          <p>
+            Supporting 150+ students through office hours and lab sessions in C
+            systems programming, concurrency, virtual memory, and network
+            programming, and grading large systems projects including a Unix
+            shell, a thread pool, and a multithreaded HTTP server.
+          </p>
+        </div>
+      </section>
+
+      <section>
         <h2>Research</h2>
         <div className="item">
           <h3>Undergraduate Researcher</h3>
@@ -49,6 +80,7 @@ export default function ExperiencePage() {
               Dr. Luke Achenie
             </a>
           </span>
+          <p>August 2025 &ndash; May 2026</p>
           <p>
             AI-driven scientific modeling, LLM-guided symbolic regression,
             multi-stage optimization pipelines, and computational frameworks
