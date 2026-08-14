@@ -43,16 +43,15 @@ export default function ExperiencePage() {
         <h2>Experience</h2>
         <div className="item">
           <h3>DevOps Engineer Intern</h3>
-          <span className="org">Kinsale Insurance &mdash; Richmond, VA</span>
-          <p>May 2026 &ndash; August 2026</p>
+          <span className="org">Kinsale Insurance, Richmond, VA</span>
+          <p>May 2026 - August 2026</p>
           <p>
             Built OpsKiosk, a centralized software inventory platform that
-            automatically pulls metadata &mdash; ownership, dependencies,
-            pipeline health, and recent activity &mdash; from 120+ GitLab
-            projects and makes it searchable in one place. Replaced hours of
-            manual repository-by-repository searching with a single query, and
-            was adopted by 50+ engineers and managers as the source of truth
-            for software inventory.
+            automatically pulls ownership, dependency, pipeline health, and
+            activity metadata from 120+ GitLab projects and makes it searchable
+            in one place. Replaced hours of manual repository-by-repository
+            searching with a single query, and was adopted by 50+ engineers and
+            managers as the source of truth for software inventory.
           </p>
         </div>
         <div className="item">
@@ -60,7 +59,7 @@ export default function ExperiencePage() {
           <span className="org">
             Virginia Tech, Department of Computer Science
           </span>
-          <p>August 2026 &ndash; Present</p>
+          <p>August 2026 - Present</p>
           <p>
             Supporting 150+ students through office hours and lab sessions in C
             systems programming, concurrency, virtual memory, and network
@@ -80,7 +79,7 @@ export default function ExperiencePage() {
               Dr. Luke Achenie
             </a>
           </span>
-          <p>August 2025 &ndash; May 2026</p>
+          <p>August 2025 - May 2026</p>
           <p>
             AI-driven scientific modeling, LLM-guided symbolic regression,
             multi-stage optimization pipelines, and computational frameworks

@@ -34,9 +34,9 @@ export default function AboutPage() {
             </p>
             <p>
               This past summer I was a DevOps engineering intern at Kinsale Insurance, where I
-              built OpsKiosk &mdash; an internal inventory platform that makes metadata from
-              120+ GitLab projects searchable in one place, now used by 50+ engineers. This
-              fall I&rsquo;m a teaching assistant for Computer Systems at Virginia Tech.
+              built OpsKiosk, an internal inventory platform that makes metadata from 120+
+              GitLab projects searchable in one place, now used by 50+ engineers. This fall
+              I&rsquo;m a teaching assistant for Computer Systems at Virginia Tech.
             </p>
           </div>
         </div>
